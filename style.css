@@ -196,6 +196,7 @@ button#btn-el{
     font-family: 'Inter';
     font-weight: 500;
     line-height: 32px;
+    overflow: hidden;
   }
   
 

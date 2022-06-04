@@ -14,47 +14,44 @@
   <!-- Hero Section -->
     <main class="hero">
       <!-- switch light-mode -->
-<label class="switch">
-  <input type="checkbox" onclick="toggleBackground()" id="remove-checkbox">
-  <span class="slider round"></span>
-</label>
+      <label class="switch">
+        <input type="checkbox" onclick="toggleBackground()" id="remove-checkbox">
+        <span class="slider round"></span>
+      </label>
       <!-- End Rounded switch -->
       <h1 class="hero-title">Generate a <br><span class="text-green">random password</span> </h1>
       <h3 class="hero-sub-title">Never use an insecure password again.</h3>
      
         <label for="characterAmountNumber">Number of characters</label>      
         <div class="char-selection">
-          <input type="range" min="1" max="10" id="characterAmountRange" value="10">
-          <input type="number" min="1" max="10" id="characterAmountNumber" value="10">
+          <input type="range" min="5" max="50" id="characterAmountRange" value="10">
+          <input type="number" min="5" max="50" id="characterAmountNumber" value="10">
 
         </div>
         <div class="radio-buttons">
           <div>
             <label for="symbol">Symbols</label>
-            <input type="radio" name="radio" id="symbol" >
+            <input type="checkbox" name="checkbox" id="symbol" checked>
           </div>
           <div>
             <label for="alphabet-lower">a-z</label>
-            <input type="radio" name="radio" id="alphabet-lower" >
+            <input type="checkbox" name="checkbox" id="alphabet-lower" checked>
           </div>
           <div>
             <label for="alphabet-upper">A-Z</label>
-            <input type="radio" name="radio" id="alphabet-upper" >
+            <input type="checkbox" name="checkbox" id="alphabet-upper" checked>
           </div>
           <div>
             <label for="numbers">Numbers</label>
-            <input type="radio" name="radio" id="numbers" >
+            <input type="checkbox" name="checkbox" id="numbers" checked>
           </div>
-          <div>
-            <label for="full-array">Full Array</label>
-            <input type="radio" name="radio" id="full-array" checked>
-          </div>
+
 
         </div>
 
  
       <button type="submit" id="btn-el" onclick="callGeneratedPassword()">
-       <img class="btn-img" src="icon.png" alt=""> Generate passwords
+       <img class="btn-img" src="Icon.png" alt=""> Generate passwords
       </button>
 
       <hr>
@@ -65,11 +62,11 @@
         <!-- First Password -->
         <div class="input-container">
           <button onclick="copyToClipboard(inputElFirstPassword)" class=" clipboard"></button>
-          <input type="text" class="input-el first-password" placeholder="...">
+          <div class="input-el first-password">...</div>
         </div>
          <!-- Second Password -->
         <div class="input-container">
-          <input type="text" class="input-el second-password" placeholder="...">
+          <div class="input-el second-password">...</div>
           <button onclick="copyToClipboard(inputElSecondPassword)" class=" clipboard"></button>
         </div>
 
@@ -77,12 +74,12 @@
      <div class="column-right column">
        <!-- Third Password -->
        <div class="input-container">
-        <input type="text" class="input-el third-password" placeholder="...">
+        <div class="input-el third-password">...</div>
         <button onclick="copyToClipboard(inputElThirdPassword)" class=" clipboard"></button>
       </div>
       <!-- Fourth Password -->
       <div class="input-container" >
-        <input type="text" class="input-el fourth-password" placeholder="...">
+        <div class="input-el fourth-password">...</div>
         <button onclick="copyToClipboard(inputElFourthPassword)" class=" clipboard"></button>
       </div>
 
