@@ -52,40 +52,32 @@ function generateRandomPassword(arr){
   }
   return newPassword 
 }
-// Concat multiple arrays together.
-function concatArrays(arr, arr2, arr3, arr4) {
-  let newConcatArray = []
-  newConcatArray = arr.concat(arr2, arr3, arr4)
-  return newConcatArray
-}
-
-console.log(concatArrays(symbolArray, alphabetUpper))
 
 // On-click calls the generateRandomPassword function that provides the generated passwords into the insert fields.
 function callGeneratedPassword() {
   let newArray = []
-  if ((symbolCheck.checked)&& 
-      (!alphabetLowerCheck.checked) && 
-      (!alphabetUpperCheck.checked) && 
-      (!numbersCheck.checked)){
+  if (symbolCheck.checked === true && 
+      alphabetLowerCheck.checked === false && 
+      alphabetUpperCheck.checked === false && 
+      numbersCheck.checked === false){
     newArray = generateRandomPassword(symbolArray)
 
-      } else if ((!symbolCheck.checked)&& 
-      (alphabetLowerCheck.checked) && 
-      (!alphabetUpperCheck.checked) && 
-      (!numbersCheck.checked)){
+      } else if (symbolCheck.checked === false && 
+      alphabetLowerCheck.checked === true && 
+      alphabetUpperCheck.checked === false && 
+      numbersCheck.checked === false){
     newArray = generateRandomPassword(alphabetLower)
 
-      } else if ((!symbolCheck.checked)&& 
-      (!alphabetLowerCheck.checked) && 
-      (alphabetUpperCheck.checked) && 
-      (!numbersCheck.checked)){
+      } else if (symbolCheck.checked === false && 
+      alphabetLowerCheck.checked === false && 
+      alphabetUpperCheck.checked === true && 
+      numbersCheck.checked === false){
     newArray = generateRandomPassword(alphabetUpper)
 
-      } else if ((!symbolCheck.checked)&& 
-      (!alphabetLowerCheck.checked) && 
-      (!alphabetUpperCheck.checked) && 
-      (numbersCheck.checked)){
+      } else if (symbolCheck.checked === false && 
+      alphabetLowerCheck.checked === false && 
+      alphabetUpperCheck.checked === false && 
+      numbersCheck.checked === true){
     newArray = generateRandomPassword(numbersArray)
       }else {
         newArray = generateRandomPassword(fullArray)
