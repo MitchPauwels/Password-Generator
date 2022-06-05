@@ -1,14 +1,3 @@
-// Password Arrays
-const symbolArray = ['!','”','#','$','%','&','(',')','*','+','-']
-const alphabetLower = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-const alphabetUpper = alphabetLower.map(element => element.toUpperCase())
-const numbersArray = [1,2,3,4,5,6,7,8,9,0]
-const fullArray = symbolArray.concat(alphabetLower, alphabetUpper,numbersArray)
-// Selected Input Elements
-const inputElFirstPassword = document.querySelector('.first-password')
-const inputElSecondPassword = document.querySelector('.second-password')
-const inputElThirdPassword = document.querySelector('.third-password')
-const inputElFourthPassword = document.querySelector('.fourth-password')
 // Select range and input[number] element
 const characterAmountRange = document.getElementById('characterAmountRange')
 const characterAmountNumber = document.getElementById('characterAmountNumber')
@@ -29,7 +18,7 @@ const passwordElements = document.querySelectorAll('.input-el')
 characterAmountRange.addEventListener('input', syncCharacterAmount)
 characterAmountNumber.addEventListener('input', syncCharacterAmount)
 // Sync range with number input/value
-function syncCharacterAmount (sync) {
+function syncCharacterAmount(sync) {
   const value = sync.target.value
   characterAmountRange.value = value
   characterAmountNumber.value = value
@@ -45,56 +34,38 @@ function copyText(text) {
   navigator.clipboard.writeText(text);
 }
 // Generate new passwords based on the Array provided
-function generateRandomPassword(arr){
+function generateRandomPassword(arr) {
   let newPassword = ''
-  for (let i = 0; i < characterAmountNumber.value ; i++) {
+  for (let i = 0; i < characterAmountNumber.value; i++) {
     newPassword += arr[Math.floor(Math.random() * arr.length)]
   }
-  return newPassword 
+  return newPassword
 }
-
 // On-click calls the generateRandomPassword function that provides the generated passwords into the insert fields.
 function callGeneratedPassword() {
+  // Password Arrays
+  const symbolArray = ['!', '”', '#', '$', '%', '&', '(', ')', '*', '+', '-']
+  const alphabetLower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+  const alphabetUpper = alphabetLower.map(element => element.toUpperCase())
+  const numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
   let newArray = []
-  if (symbolCheck.checked === true && 
-      alphabetLowerCheck.checked === false && 
-      alphabetUpperCheck.checked === false && 
-      numbersCheck.checked === false){
-    newArray = generateRandomPassword(symbolArray)
 
-      } else if (symbolCheck.checked === false && 
-      alphabetLowerCheck.checked === true && 
-      alphabetUpperCheck.checked === false && 
-      numbersCheck.checked === false){
-    newArray = generateRandomPassword(alphabetLower)
-
-      } else if (symbolCheck.checked === false && 
-      alphabetLowerCheck.checked === false && 
-      alphabetUpperCheck.checked === true && 
-      numbersCheck.checked === false){
-    newArray = generateRandomPassword(alphabetUpper)
-
-      } else if (symbolCheck.checked === false && 
-      alphabetLowerCheck.checked === false && 
-      alphabetUpperCheck.checked === false && 
-      numbersCheck.checked === true){
-    newArray = generateRandomPassword(numbersArray)
-      }else {
-        newArray = generateRandomPassword(fullArray)
-      }
-
-  for (password of passwordElements) {
-    password.innerHTML = generateRandomPassword(newArray)
-
+  if (symbolCheck.checked) {
+    newArray = newArray.concat(symbolArray)
   }
+  if (alphabetLowerCheck.checked) {
+    newArray = newArray.concat(alphabetLower)
+  }
+  if (alphabetUpperCheck.checked) {
+    newArray = newArray.concat(alphabetUpper)
+  }
+  if (numbersCheck.checked) {
+    newArray = newArray.concat(numbersArray)
   }
 
-
-
-
-
-
-
-
-
-
+  if (newArray.length) {
+    for (password of passwordElements) {
+      password.innerHTML = generateRandomPassword(newArray)
+    }
+  }
+}
